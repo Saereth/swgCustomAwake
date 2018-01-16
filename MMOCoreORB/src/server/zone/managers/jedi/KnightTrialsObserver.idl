@@ -1,0 +1,24 @@
+/*
+ *	SWG Awakening Custom -- KnightTrialsObserver.idl
+ *	Copyright (C) <SWG Awakening>
+ */
+
+package server.zone.managers.jedi;
+
+import engine.log.Logger;
+import engine.util.Observer;
+import engine.util.Observable;
+import engine.core.ManagedObject;
+import system.util.SortedVector;
+import server.zone.ZoneServer;
+import server.zone.managers.jedi.KnightTrialsManager;
+import server.zone.objects.scene.SceneObject;
+
+class KnightTrialsObserver extends Observer implements Logger{
+
+	public KnightTrialsObserver() {
+		Logger.setLoggingName("KnightTrialsObserver");
+	}
+
+	public abstract native int notifyObserverEvent(unsigned int eventType, Observable observable, ManagedObject arg1, long arg2);
+}

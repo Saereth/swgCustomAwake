@@ -1,0 +1,38 @@
+/*
+ *	SWG Awakening Custom -- KnightTrialsManager.idl
+ *	Copyright (C) <SWG Awakening>
+ */
+
+package server.zone.managers.jedi;
+
+import engine.util.Observer;
+import engine.util.Observable;
+import engine.core.ManagedObject;
+import system.util.SortedVector;
+import server.zone.ZoneProcessServer;
+import server.zone.ZoneServer;
+import server.zone.managers.jedi.KnightTrialsObserver;
+import server.zone.objects.creature.CreatureObject;
+import server.zone.objects.player.PlayerObject;
+import server.zone.objects.scene.SceneObject;
+import server.zone.templates.mobile.CreatureTemplate;
+
+class KnightTrialsManager extends ManagedObject implements Logger{
+	protected ZoneServer server;
+	transient ZoneProcessServer processor;
+
+	public KnightTrialsManager(ZoneServer serv, ZoneProcessServer proc) {
+		Logger.setLoggingName("KnightTrialsManager");
+		Logger.setLogging(true);
+		Logger.setGlobalLogging(true);
+
+		server = serv;
+		processor = proc;
+	}
+
+	public native void jediKnightTrialProgression(CreatureObject creature, int trialNumber);
+	public native void startJediKnightTrial(CreatureObject creature, int trialNumber);
+	public native void completeJediKnightTrial(CreatureObject creature);
+	public native void setForceShrine(CreatureObject creature);
+
+}
